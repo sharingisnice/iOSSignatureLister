@@ -6,24 +6,56 @@
 //
 
 import UIKit
+import PencilKit
 
-class DrawingViewController: UIViewController {
+protocol DrawingViewDelegate {
+    func getDrawing(drawing: UIImage)
+}
 
+class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToolPickerObserver {
+
+    
+    @IBOutlet weak var canvasView: PKCanvasView!
+    
+    
+    let canvasWidth: CGFloat = 600
+    let canvasOverscrollHeight: CGFloat = 500
+    var drawing = PKDrawing()
+    var delegate: DrawingViewDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setCanvas()
+        
     }
     
+    
+    func setCanvas() {
+        canvasView.delegate = self
+        canvasView.drawing = drawing
+        
+        canvasView.alwaysBounceVertical = true
+        canvasView.allowsFingerDrawing = true
+//        canvasView.drawingPolicy = .anyInput
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if let window = parent?.view.window,
+           let toolPicker = PKToolPicker.shared(for: window) {
+            toolPicker.setVisible(true, forFirstResponder: canvasView)
+            toolPicker.addObserver(canvasView)
+            
+            canvasView.becomeFirstResponder()
+        }
+        
     }
-    */
 
+    @IBAction func saveDrawing(_ sender: Any) {
+    
+        let drawnImage = canvasView.asImage()
+        delegate?.getDrawing(drawing: drawnImage)
+        
+        navigationController?.popViewController(animated: true)
+    }
+    
 }

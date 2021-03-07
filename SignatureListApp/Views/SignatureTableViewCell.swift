@@ -8,6 +8,10 @@
 import UIKit
 
 class SignatureTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var DateField: UILabel!
+    @IBOutlet weak var signatureView: UIImageView!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

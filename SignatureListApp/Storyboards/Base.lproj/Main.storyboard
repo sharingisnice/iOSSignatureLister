@@ -1,37 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="j5u-5x-Y7r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Listing View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="frG-l4-WzD">
+            <objects>
+                <navigationController id="j5u-5x-Y7r" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5cm-z1-13r">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="qDL-GS-ydN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eD6-UV-Jyu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-687" y="117"/>
+        </scene>
+        <!--Signatures-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ListingViewController" customModule="SignatureListApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ListingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ListingViewController" customModule="SignatureListApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oLW-iW-td9">
-                                <rect key="frame" x="0.0" y="94" width="414" height="768"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="92" id="wFi-BH-Fbz">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="92"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SignatureTableViewCell" id="wFi-BH-Fbz" customClass="SignatureTableViewCell" customModule="SignatureListApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="251.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="SignatureTableViewCell" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wFi-BH-Fbz" id="Abq-se-j1y" customClass="SignatureTableViewCell" customModule="SignatureListApp" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="92"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="251.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VlB-YF-2Sg">
+                                                    <rect key="frame" x="20" y="40.5" width="374" height="200"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="200" id="b91-aY-73p"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9dQ-qn-tlE">
+                                                    <rect key="frame" x="40" y="11" width="354" height="21.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="VlB-YF-2Sg" firstAttribute="trailing" secondItem="Abq-se-j1y" secondAttribute="trailingMargin" id="Ui4-uf-QBD"/>
+                                                <constraint firstItem="VlB-YF-2Sg" firstAttribute="bottom" secondItem="Abq-se-j1y" secondAttribute="bottomMargin" id="WUH-lF-bi0"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="9dQ-qn-tlE" secondAttribute="trailing" id="XtS-67-uxg"/>
+                                                <constraint firstItem="9dQ-qn-tlE" firstAttribute="top" secondItem="Abq-se-j1y" secondAttribute="topMargin" id="i37-eY-jbb"/>
+                                                <constraint firstItem="9dQ-qn-tlE" firstAttribute="leading" secondItem="Abq-se-j1y" secondAttribute="leadingMargin" constant="20" id="k2y-O4-E55"/>
+                                                <constraint firstItem="VlB-YF-2Sg" firstAttribute="top" secondItem="9dQ-qn-tlE" secondAttribute="bottom" constant="8" symbolic="YES" id="lNl-XM-JMb"/>
+                                                <constraint firstItem="VlB-YF-2Sg" firstAttribute="leading" secondItem="Abq-se-j1y" secondAttribute="leadingMargin" id="pt5-Cf-6pD"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="DateField" destination="9dQ-qn-tlE" id="lVo-q4-AHB"/>
+                                            <outlet property="signatureView" destination="VlB-YF-2Sg" id="Pfh-Vy-EHa"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uaT-tD-ZE1">
-                                <rect key="frame" x="354" y="44" width="40" height="40"/>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oLW-iW-td9" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="KEQ-ZC-Nf5"/>
+                            <constraint firstItem="oLW-iW-td9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Rah-ni-waS"/>
+                            <constraint firstItem="oLW-iW-td9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Xw8-8y-eAn"/>
+                            <constraint firstItem="oLW-iW-td9" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="vPZ-46-pou"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Signatures" id="WPH-dC-gfa">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="EFD-bE-0sw">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="uaT-tD-ZE1">
+                                <rect key="frame" x="354" y="2" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="fpX-7g-KQL"/>
                                     <constraint firstAttribute="height" constant="40" id="it8-Ky-wpo"/>
@@ -41,26 +98,8 @@
                                     <action selector="createSignature:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hdz-KM-Zcg"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signatures" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lGE-mJ-K2a">
-                                <rect key="frame" x="166" y="54" width="82" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="lGE-mJ-K2a" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="05j-8U-vgs"/>
-                            <constraint firstItem="oLW-iW-td9" firstAttribute="top" secondItem="uaT-tD-ZE1" secondAttribute="bottom" constant="10" id="3U3-KK-aY7"/>
-                            <constraint firstItem="oLW-iW-td9" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="KEQ-ZC-Nf5"/>
-                            <constraint firstItem="uaT-tD-ZE1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="OxP-HK-YrR"/>
-                            <constraint firstItem="oLW-iW-td9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Rah-ni-waS"/>
-                            <constraint firstItem="lGE-mJ-K2a" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Wbn-eN-HEM"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uaT-tD-ZE1" secondAttribute="trailing" constant="20" id="lpk-RE-3R5"/>
-                            <constraint firstItem="oLW-iW-td9" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="vPZ-46-pou"/>
-                        </constraints>
-                    </view>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="oLW-iW-td9" id="RW0-5X-Iir"/>
                     </connections>
@@ -72,22 +111,49 @@
         <!--Drawing View Controller-->
         <scene sceneID="TH6-sH-Ciy">
             <objects>
-                <viewController id="bLH-X9-1b2" customClass="DrawingViewController" customModule="SignatureListApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DrawingViewController" id="bLH-X9-1b2" customClass="DrawingViewController" customModule="SignatureListApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JiQ-ZH-r6Z">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PUp-NK-59U" customClass="PKCanvasView">
+                                <rect key="frame" x="20" y="69" width="374" height="613"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UaD-kN-MhT">
+                                <rect key="frame" x="50" y="712" width="314" height="30"/>
+                                <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveDrawing:" destination="bLH-X9-1b2" eventType="touchUpInside" id="Tcl-mS-DXX"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="4KT-nT-2Pt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="PUp-NK-59U" firstAttribute="leading" secondItem="4KT-nT-2Pt" secondAttribute="leading" constant="20" id="0N5-7P-Vcb"/>
+                            <constraint firstItem="4KT-nT-2Pt" firstAttribute="trailing" secondItem="PUp-NK-59U" secondAttribute="trailing" constant="20" id="5as-Kx-ing"/>
+                            <constraint firstItem="UaD-kN-MhT" firstAttribute="top" secondItem="PUp-NK-59U" secondAttribute="bottom" constant="30" id="JMS-iM-rQQ"/>
+                            <constraint firstItem="4KT-nT-2Pt" firstAttribute="bottom" secondItem="UaD-kN-MhT" secondAttribute="bottom" constant="120" id="U5o-CL-GtV"/>
+                            <constraint firstItem="4KT-nT-2Pt" firstAttribute="trailing" secondItem="UaD-kN-MhT" secondAttribute="trailing" constant="50" id="WIm-cq-cnf"/>
+                            <constraint firstItem="UaD-kN-MhT" firstAttribute="centerX" secondItem="4KT-nT-2Pt" secondAttribute="centerX" id="fgv-ak-Rhd"/>
+                            <constraint firstItem="PUp-NK-59U" firstAttribute="top" secondItem="4KT-nT-2Pt" secondAttribute="top" constant="25" id="gf1-gR-WAC"/>
+                            <constraint firstItem="UaD-kN-MhT" firstAttribute="leading" secondItem="4KT-nT-2Pt" secondAttribute="leading" constant="50" id="t9r-vL-zgq"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="canvasView" destination="PUp-NK-59U" id="h4a-WZ-f3o"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i9k-mS-wNj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="865" y="117"/>
+            <point key="canvasLocation" x="863.768115942029" y="116.51785714285714"/>
         </scene>
         <!--Preview View Controller-->
         <scene sceneID="XPI-yE-RVj">
             <objects>
-                <viewController id="q7E-Om-n2C" customClass="PreviewViewController" customModule="SignatureListApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PreviewViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="q7E-Om-n2C" customClass="PreviewViewController" customModule="SignatureListApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mFJ-dN-DKh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -141,6 +207,12 @@
         <image name="trash" catalog="system" width="121" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

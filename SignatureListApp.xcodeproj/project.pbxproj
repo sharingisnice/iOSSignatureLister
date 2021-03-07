@@ -17,6 +17,8 @@
 		61C3ADD825F4EDE300A1CA38 /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C3ADD725F4EDE300A1CA38 /* DrawingViewController.swift */; };
 		61C3ADDB25F4EDEF00A1CA38 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C3ADDA25F4EDEF00A1CA38 /* PreviewViewController.swift */; };
 		61C3ADE525F4EF7D00A1CA38 /* SignatureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C3ADE425F4EF7D00A1CA38 /* SignatureTableViewCell.swift */; };
+		61C3ADEB25F5083E00A1CA38 /* UsefulExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C3ADEA25F5083E00A1CA38 /* UsefulExtensions.swift */; };
+		61C3ADF325F5299900A1CA38 /* DataBaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C3ADF225F5299900A1CA38 /* DataBaseHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		61C3ADD725F4EDE300A1CA38 /* DrawingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
 		61C3ADDA25F4EDEF00A1CA38 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		61C3ADE425F4EF7D00A1CA38 /* SignatureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureTableViewCell.swift; sourceTree = "<group>"; };
+		61C3ADEA25F5083E00A1CA38 /* UsefulExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsefulExtensions.swift; sourceTree = "<group>"; };
+		61C3ADF225F5299900A1CA38 /* DataBaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,7 @@
 				61C3ADE025F4EE1900A1CA38 /* Storyboards */,
 				61C3ADDE25F4EE0E00A1CA38 /* ViewControllers */,
 				61C3ADE325F4EF3200A1CA38 /* Views */,
+				61C3ADE925F5082E00A1CA38 /* Extensions */,
 				61C3ADCA25F4ED9500A1CA38 /* Assets.xcassets */,
 				61C3ADCF25F4ED9500A1CA38 /* Info.plist */,
 				61C3ADC725F4ED9400A1CA38 /* SignatureListApp.xcdatamodeld */,
@@ -99,6 +104,7 @@
 		61C3ADE125F4EE2E00A1CA38 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				61C3ADF225F5299900A1CA38 /* DataBaseHelper.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -109,6 +115,14 @@
 				61C3ADE425F4EF7D00A1CA38 /* SignatureTableViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		61C3ADE925F5082E00A1CA38 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				61C3ADEA25F5083E00A1CA38 /* UsefulExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,10 +196,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				61C3ADE525F4EF7D00A1CA38 /* SignatureTableViewCell.swift in Sources */,
+				61C3ADF325F5299900A1CA38 /* DataBaseHelper.swift in Sources */,
 				61C3ADC925F4ED9400A1CA38 /* SignatureListApp.xcdatamodeld in Sources */,
 				61C3ADC325F4ED9400A1CA38 /* ListingViewController.swift in Sources */,
 				61C3ADBF25F4ED9400A1CA38 /* AppDelegate.swift in Sources */,
 				61C3ADC125F4ED9400A1CA38 /* SceneDelegate.swift in Sources */,
+				61C3ADEB25F5083E00A1CA38 /* UsefulExtensions.swift in Sources */,
 				61C3ADD825F4EDE300A1CA38 /* DrawingViewController.swift in Sources */,
 				61C3ADDB25F4EDEF00A1CA38 /* PreviewViewController.swift in Sources */,
 			);
@@ -264,7 +280,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -319,7 +335,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
