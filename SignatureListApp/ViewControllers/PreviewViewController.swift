@@ -9,34 +9,28 @@ import UIKit
 
 
 protocol PreviewDelegate {
-    func deleteItem()
+    func deleteItem(at index: Int)
 }
 
 
 class PreviewViewController: UIViewController {
 
     @IBOutlet weak var previewImage: UIImageView!
+    @IBOutlet weak var dateLabel: UILabel!
     
     
     var delegate: PreviewDelegate?
-    
+    var itemIndex: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
-    }
-    
-    
-    func showPreviewImage() {
-        
     }
     
     
     @IBAction func deleteSignature(_ sender: Any) {
-        
-        delegate?.deleteItem()
-        navigationController?.popViewController(animated: true)
+        delegate?.deleteItem(at: itemIndex!)
+        dismiss(animated: true, completion: nil)
+        dateLabel.text = ""
     }
     
 }

@@ -20,13 +20,8 @@ class ListingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getDatas()
-        setupView()
-    }
-    
-    
-    func getDatas() {
         fetchOldImages()
+        setupView()
     }
     
     
@@ -47,28 +42,20 @@ class ListingViewController: UIViewController {
         }
         
         tableView.reloadData()
-        
+    }
+    
+    
+    func removeItemFromCoreData(at: Int) {
+        let arr = DataBaseHelper.shareInstance.fetchImage()
+        DataBaseHelper.shareInstance.deleteImage(data: arr[at])
     }
     
     
     func setupView() {
         mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        
-        
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 250
-        
         tableView.tableFooterView = UIView()
-        
-    }
-    
-    
-    @IBAction func createSignature(_ sender: Any) {
-        let DrawingVC = (mainStoryboard!.instantiateViewController(withIdentifier: "DrawingViewController") as? DrawingViewController)!
-        DrawingVC.delegate = self
-        
-        navigationController?.pushViewController(DrawingVC, animated: true)
     }
     
     
@@ -85,20 +72,38 @@ class ListingViewController: UIViewController {
         drawings.append(drawing)
         dates.append(currentDate)
         DataBaseHelper.shareInstance.saveImage(data: drawing.pngData()!, date: currentDate)
+        tableView.reloadData()
+    }
+    
+    
+    func navigateToPreview(_ item : UIImage, index: Int ) {
+        let previewVC = mainStoryboard!.instantiateViewController(identifier: "PreviewViewController") as! PreviewViewController
+        self.present(previewVC, animated: true)
+        previewVC.delegate = self
+        previewVC.previewImage.image = item
+        previewVC.itemIndex = index
+        previewVC.dateLabel.text = "Saved on: \(dates[index])"
+    }
+    
+    
+    func removeItemFromList(at index: Int){
+        drawings.remove(at: index)
+        dates.remove(at: index)
+        removeItemFromCoreData(at: index)
         
         tableView.reloadData()
     }
     
     
-    func navigateToPreview(_ item : UIImage ) {
-        let previewVC = mainStoryboard!.instantiateViewController(identifier: "PreviewViewController") as! PreviewViewController
-        self.present(previewVC, animated: true)
-        previewVC.delegate = self
-        previewVC.previewImage.image = item
+    @IBAction func createSignature(_ sender: Any) {
+        let DrawingVC = (mainStoryboard!.instantiateViewController(withIdentifier: "DrawingViewController") as? DrawingViewController)!
+        DrawingVC.delegate = self
+        navigationController?.pushViewController(DrawingVC, animated: true)
     }
     
-    
 }
+
+
 
 extension ListingViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -108,24 +113,39 @@ extension ListingViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SignatureTableViewCell") as! SignatureTableViewCell
-        
         cell.DateField.text = "Saved on: \(dates[indexPath.row])"
         cell.imageView?.image = drawings[indexPath.row]
-        
-        
+
         return cell
     }
     
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        navigateToPreview(drawings[indexPath.row])
+        navigateToPreview(drawings[indexPath.row], index: indexPath.row)
     }
+    
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let index = indexPath.row
+            removeItemFromList(at: index)
+        }
+    }
+    
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 300
+    }
+
+    
     
 }
 
 extension ListingViewController: DrawingViewDelegate, PreviewDelegate {
-    func deleteItem() {
-        
+    func deleteItem(at index: Int) {
+        removeItemFromList(at: index)
     }
+    
     
     func getDrawing(drawing: UIImage) {
         saveDrawing(drawing: drawing)

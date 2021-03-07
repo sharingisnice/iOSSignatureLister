@@ -38,7 +38,15 @@ class DataBaseHelper {
         return fetchingImage
     }
     
-    func deleteImage() {
+    
+    func deleteImage(data: Image) {
+        do {
+            try context.delete(data)
+            try context.save()
+            print("removed item and saved state")
+        } catch {
+            print(error.localizedDescription)
+        }
         
     }
     
