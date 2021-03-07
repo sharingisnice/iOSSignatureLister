@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Listing View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ListingViewController" customModule="SignatureListApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oLW-iW-td9">
+                                <rect key="frame" x="0.0" y="94" width="414" height="768"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="92" id="wFi-BH-Fbz">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="92"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="SignatureTableViewCell" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wFi-BH-Fbz" id="Abq-se-j1y" customClass="SignatureTableViewCell" customModule="SignatureListApp" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="92"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uaT-tD-ZE1">
+                                <rect key="frame" x="354" y="44" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="fpX-7g-KQL"/>
+                                    <constraint firstAttribute="height" constant="40" id="it8-Ky-wpo"/>
+                                </constraints>
+                                <state key="normal" image="square.and.pencil" catalog="system"/>
+                                <connections>
+                                    <action selector="createSignature:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hdz-KM-Zcg"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signatures" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lGE-mJ-K2a">
+                                <rect key="frame" x="166" y="54" width="82" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="lGE-mJ-K2a" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="05j-8U-vgs"/>
+                            <constraint firstItem="oLW-iW-td9" firstAttribute="top" secondItem="uaT-tD-ZE1" secondAttribute="bottom" constant="10" id="3U3-KK-aY7"/>
+                            <constraint firstItem="oLW-iW-td9" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="KEQ-ZC-Nf5"/>
+                            <constraint firstItem="uaT-tD-ZE1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="OxP-HK-YrR"/>
+                            <constraint firstItem="oLW-iW-td9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Rah-ni-waS"/>
+                            <constraint firstItem="lGE-mJ-K2a" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Wbn-eN-HEM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uaT-tD-ZE1" secondAttribute="trailing" constant="20" id="lpk-RE-3R5"/>
+                            <constraint firstItem="oLW-iW-td9" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="vPZ-46-pou"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="oLW-iW-td9" id="RW0-5X-Iir"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="116.51785714285714"/>
+        </scene>
+        <!--Drawing View Controller-->
+        <scene sceneID="TH6-sH-Ciy">
+            <objects>
+                <viewController id="bLH-X9-1b2" customClass="DrawingViewController" customModule="SignatureListApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JiQ-ZH-r6Z">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="4KT-nT-2Pt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i9k-mS-wNj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="865" y="117"/>
+        </scene>
+        <!--Preview View Controller-->
+        <scene sceneID="XPI-yE-RVj">
+            <objects>
+                <viewController id="q7E-Om-n2C" customClass="PreviewViewController" customModule="SignatureListApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mFJ-dN-DKh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zSe-FQ-sCn">
+                                <rect key="frame" x="177" y="54" width="60" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EiS-Kq-rYg">
+                                <rect key="frame" x="354" y="44" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="0nJ-8X-Mxp"/>
+                                    <constraint firstAttribute="height" constant="40" id="buk-C8-t0V"/>
+                                </constraints>
+                                <state key="normal" image="trash" catalog="system"/>
+                                <connections>
+                                    <action selector="deleteSignature:" destination="q7E-Om-n2C" eventType="touchUpInside" id="TUK-ef-2Vk"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dVw-z4-t8d">
+                                <rect key="frame" x="20" y="259" width="374" height="388"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="NH4-Ao-EJ3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="NH4-Ao-EJ3" firstAttribute="trailing" secondItem="EiS-Kq-rYg" secondAttribute="trailing" constant="20" id="1JM-Qe-6el"/>
+                            <constraint firstItem="dVw-z4-t8d" firstAttribute="leading" secondItem="NH4-Ao-EJ3" secondAttribute="leading" constant="20" id="Cew-AU-xxN"/>
+                            <constraint firstItem="dVw-z4-t8d" firstAttribute="centerX" secondItem="NH4-Ao-EJ3" secondAttribute="centerX" id="EAW-bF-giM"/>
+                            <constraint firstItem="zSe-FQ-sCn" firstAttribute="top" secondItem="NH4-Ao-EJ3" secondAttribute="top" constant="10" id="I3c-Hg-IWf"/>
+                            <constraint firstItem="dVw-z4-t8d" firstAttribute="centerY" secondItem="NH4-Ao-EJ3" secondAttribute="centerY" id="VPX-Ie-d0J"/>
+                            <constraint firstItem="EiS-Kq-rYg" firstAttribute="top" secondItem="NH4-Ao-EJ3" secondAttribute="top" id="XiP-eg-Vw2"/>
+                            <constraint firstItem="zSe-FQ-sCn" firstAttribute="centerX" secondItem="NH4-Ao-EJ3" secondAttribute="centerX" id="aLH-Ie-bUR"/>
+                            <constraint firstItem="NH4-Ao-EJ3" firstAttribute="bottom" secondItem="dVw-z4-t8d" secondAttribute="bottom" constant="215" id="lN5-al-WDn"/>
+                            <constraint firstItem="NH4-Ao-EJ3" firstAttribute="trailing" secondItem="dVw-z4-t8d" secondAttribute="trailing" constant="20" id="q8E-73-RLj"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="previewImage" destination="dVw-z4-t8d" id="9FE-Ih-ukL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GKQ-kv-7Re" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1600.0000000000002" y="116.51785714285714"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="square.and.pencil" catalog="system" width="128" height="115"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
